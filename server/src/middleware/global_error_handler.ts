@@ -9,12 +9,13 @@ const globalError = (err: any, req: Request, res: Response, next: NextFunction) 
         errorMessage: err.message || "internal server error",
         status: err.status || "fail",
         statusCode,
-        success: err.success
+        success: err.success || false
     }
 
 
     res.status(statusCode).json(msg);
 
 }
+
 
 export default globalError;

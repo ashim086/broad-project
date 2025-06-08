@@ -1,6 +1,6 @@
 import { Response } from "express"
 
-const successMsG = (statusCode: number, data: any, res: Response, ms?: string) => {
+const successMsG = (statusCode: number, data: any, res: Response, ms?: string, token?: string) => {
 
     let code = statusCode || 200
     let message = ms ?? 'opertaion succesfull'
@@ -9,7 +9,8 @@ const successMsG = (statusCode: number, data: any, res: Response, ms?: string) =
         message,
         status: 'success',
         data,
-        success: true
+        success: true,
+        token
     }
     res.status(code).json(msg)
 }

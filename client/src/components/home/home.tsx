@@ -1,12 +1,13 @@
 import React from 'react'
-import NavBar from '../layout/navbar'
-import TopStock from './TopStock'
+import TopStock from './topstock/TopStock'
+import FeaturedStock from './featured/featured'
 
 function HomePage() {
     return (
         <main>
 
             <TopStock />
+            <FeaturedStock />
         </main>
     )
 }

@@ -1,4 +1,4 @@
-import { CarTaxiFront, Home, LogOutIcon, User } from 'lucide-react'
+import { CarTaxiFront, Home, LogOutIcon, Search, User } from 'lucide-react'
 import React from 'react'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { GiWhistle } from 'react-icons/gi'
@@ -35,13 +35,30 @@ function NavBar() {
 
 
     return (
-        <div className='flex mt-6 w-full justify-between'>
+        <div className='flex mt-6 w-full justify-between p-2'>
+
+
+
+            <div className='flex space-x-7  border-gray-200 rounded-4xl shadow-lg px-6 justify-end items-end '>
+
+                {
+                    user.map((items, index) =>
+                        <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
+                            {items.icon}
+
+
+                        </div>)
+                }
+
+
+            </div>
+
 
             <div className='flex space-x-7  border-gray-200 rounded-4xl shadow-lg px-6 content-center'>
 
                 {
-                    navbarItems.map((items) =>
-                        <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer'>
+                    navbarItems.map((items, index) =>
+                        <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
                             {items.icon}
                             <h1>{items.label}</h1>
 
@@ -51,16 +68,11 @@ function NavBar() {
 
 
             </div>
-            <div className='flex space-x-7  border-gray-200 rounded-4xl shadow-lg px-6 justify-end items-end ml-26'>
-
-                {
-                    user.map((items) =>
-                        <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer'>
-                            {items.icon}
+            <div className='flex space-x-7  border-gray-200 rounded-4xl shadow-lg  content-center justify-center text-center items-center'>
 
 
-                        </div>)
-                }
+                <input type='text' className='border border-gray-200 broder-2 p-2 rounded-4xl' placeholder='Search...' />
+                <Search className='mr-2' />
 
 
             </div>

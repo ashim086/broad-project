@@ -12,5 +12,4 @@ const asyncHandler = (fn: asyncHandler): RequestHandler => {
 
 }
 
-
 export default asyncHandler
