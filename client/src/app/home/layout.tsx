@@ -5,11 +5,11 @@ function Layout({ children }: { children: ReactNode }) {
     return (
 
 
-        <main>
+        <main >
 
             <NavBar />
             {children}
-            
+
         </main>
     )
 }
