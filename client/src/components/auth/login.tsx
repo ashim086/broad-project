@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Input from '../common/input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from '@/schema/login.schema';
+import { loginSchema } from '@/schema/auth.schema';
 import { ILogin } from '@/interface/auth.interface';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';

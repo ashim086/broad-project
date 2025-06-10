@@ -4,42 +4,38 @@ import QueryProvider from './react.provider'
 const Provider = ({ children }: { children: React.ReactNode }) => {
 
     return (
-        <>
 
-            <QueryProvider>
+        <QueryProvider>
 
-                {children}
+            {children}
 
-                <Toaster
-                    position='bottom-center'
-                    reverseOrder={false}
-                    gutter={8}
-                    containerClassName=""
-                    containerStyle={{}}
-                    toastOptions={{
-                        // Define default options
-                        className: '',
-                        duration: 5000,
-                        removeDelay: 1000,
-                        style: {
-                            background: '#363636',
-                            color: '#fff',
+            <Toaster
+                position='bottom-center'
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: '',
+                    duration: 5000,
+                    removeDelay: 1000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+
+                    // Default options for specific types
+                    success: {
+                        duration: 3000,
+                        iconTheme: {
+                            primary: 'green',
+                            secondary: 'black',
                         },
-
-                        // Default options for specific types
-                        success: {
-                            duration: 3000,
-                            iconTheme: {
-                                primary: 'green',
-                                secondary: 'black',
-                            },
-                        },
-                    }}
-                />
-            </QueryProvider>
-
-
-        </>
+                    },
+                }}
+            />
+        </QueryProvider>
 
     )
 }

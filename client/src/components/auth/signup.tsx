@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Input from '../common/input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signupSchema } from '@/schema/login.schema';
+import { signupSchema } from '@/schema/auth.schema';
 import { ISignup } from '@/interface/auth.interface';
 
 function Signup() {
