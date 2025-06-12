@@ -30,19 +30,20 @@ function ProductGrid() {
     if (error) return <div className="text-center mt-20 text-red-500">Error loading products</div>
 
     return (
-        <main className="mt-20">
+        <main className="mt-20 bg-gray-200">
             <div className="w-full">
-                <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+                <h1 className="text-4xl font-bold text-start text-gray-800 mb-12">
                     Our Products
-                </h1>
+                </h1>   
 
-                <div className="grid gap-x-0 gap-y-9 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 auto-rows-fr grow shrink">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 space-x-4 space-y-6 px-4 sm:px-6 md:px-8 lg:px-10">
                     {data?.data.slice(0, visibleCount).map((product: IProduct, index: number) => (
-                        <div key={index} className="h-full min-h-[300px]">
+                        <div key={index} className="flex">
                             <Card product={product} />
                         </div>
                     ))}
                 </div>
+
 
                 <div className="text-center mt-12 space-x-4">
                     {data?.data && visibleCount < data.data.length && (

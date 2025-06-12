@@ -18,7 +18,7 @@ export function WithAuth<T>(Component: React.ComponentType<T>, Roles: string[]) 
             const token = Cookies.get("access_token")
             const { valid, role } = Parsetoken(token ?? '')
 
-            if (!valid && !Roles.includes(role ?? '')) {
+            if (!valid || !Roles.includes(role ?? '')) {
 
                 toast.error("Please login for your request")
 

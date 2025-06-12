@@ -2,7 +2,7 @@ import * as yup from 'yup'
 
 export const signupSchema = yup.object({
 
-    username: yup.string().required('Username is required'),
+    userName: yup.string().required('Username is required'),
     email: yup.string().required('Email is required').email(),
     password: yup.string().required('Password is required'),
     phoneNumber: yup

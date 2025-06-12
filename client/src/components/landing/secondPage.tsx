@@ -19,7 +19,7 @@ function SecondPage() {
     return (
         <div className=' font-sans px-9 pb-6 mt-29'>
 
-            <div className='flex justify-between pt-16' >
+            <div className='flex justify-between pt-9' >
 
                 <div className=''>
 
@@ -46,7 +46,7 @@ function SecondPage() {
             </div>
 
 
-            <div className='flex space-x-6 my-6'>
+            <div className='flex space-x-4 my-6'>
                 {data?.data.slice(0, 5).map((product: IProduct, index: number) => (
                     <Card product={product} key={index} />
                 ))}

@@ -1,9 +1,8 @@
-import { CarTaxiFront, Home, LogOutIcon, Search, User } from 'lucide-react'
+import { Home, LogOutIcon, Search, User } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { FaHeart } from 'react-icons/fa'
-import { GiWhistle } from 'react-icons/gi'
 import { IoMdCart } from 'react-icons/io'
 
 function NavBar() {
@@ -16,20 +15,20 @@ function NavBar() {
         },
         {
             label: 'Whistlist',
-            icon: <FaHeart />,
+            icon: <FaHeart size={20} />,
             link: '/home/wishlist'
 
         },
         {
-            label: 'Purchase',
-            icon: <BiPurchaseTag />,
-            link: '/home/purchase'
-
+            label: 'My Cart',
+            icon: <IoMdCart size={23} />,
+            link: '/home/cart'
         },
         {
-            label: 'My Cart',
-            icon: <IoMdCart />,
-            link: '/home/cart'
+            label: 'Purchase',
+            icon: <BiPurchaseTag size={24} />,
+            link: '/home/purchase'
+
         },
 
     ]
@@ -68,9 +67,9 @@ function NavBar() {
                 {
                     navbarItems.map((items, index) => (
                         <Link href={`${items.link}`} key={index}>
-                            <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer'>
+                            <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer '>
                                 {items.icon}
-                                <h1>{items.label}</h1>
+                                <h1 className='font-sans font-semibold'>{items.label}</h1>
 
                             </div>
                         </Link>)

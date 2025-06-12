@@ -15,3 +15,18 @@ export const login = async (data: ILogin) => {
     }
 
 }
+
+export const signup = async (data: ILogin) => {
+
+    console.log("api data", data)
+    try {
+
+        const response = await apiInstance.post('/user/signup', data);
+        return response?.data
+
+    } catch (error: any) {
+
+        throw error?.response?.data
+    }
+
+}

@@ -38,11 +38,19 @@ function LoginForm() {
         mutationFn: login,
         onSuccess: (response) => {
 
-            toast.success(response?.message)    
+            toast.success(response?.message)
+
+            console.log(response)
+
+
 
             Cookies.set('access_token', response?.token)
             localStorage.setItem('user_info', JSON.stringify(response?.data))
-            router.replace('/home')
+            if (response?.data?.role === "Admin") {
+                router.replace('/admin/product');
+            } else {
+                router.replace('/home');
+            }
             reset()
 
         },

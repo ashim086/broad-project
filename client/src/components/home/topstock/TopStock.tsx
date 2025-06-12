@@ -15,13 +15,13 @@ function TopStock() {
     })
 
     return (
-        <main className='mt-16'>
-            <h1 className='text-4xl font-semibold font-sans tracking-wide text-black m-6'>
+        <main className='mt-16 font-sans'>
+            <h1 className='text-4xl font-bold font-sans tracking-wide text-black m-6 '>
 
                 Our Top Selling Stock
             </h1>
 
-            <div className='px-6 pt-16 content-center text-center  '>
+            <div className='px-6 pt-16 content-center   '>
 
                 <div className='flex space-x-6 my-6'>
                     {data?.data.slice(0, 5).map((product: IProduct, index: number) => (

@@ -1,9 +1,9 @@
 export interface  ISignup {
 
-    username: string,
+    userName: string,
     email: string,
     password: string,
     phonenumber?: number
 
 }
-export type ILogin = Omit<ISignup, 'username' | 'phonenumber'>
+export type ILogin = Omit<ISignup, 'userName' | 'phonenumber'>

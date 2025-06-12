@@ -6,15 +6,22 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signupSchema } from '@/schema/auth.schema';
 import { ISignup } from '@/interface/auth.interface';
+import { useMutation } from '@tanstack/react-query';
+import { signup } from '@/api/auth.api';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+
 
 function Signup() {
 
+    const router = useRouter()
 
-    const { register, formState: { errors }, handleSubmit } = useForm({
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({
 
         defaultValues: {
             email: '',
-            username: '',
+            userName: '',
             password: '',
             phoneNumber: '',
         },
@@ -22,10 +29,30 @@ function Signup() {
         mode: 'all'
     })
 
+
+
+    const { isPending, isSuccess, error, mutate } = useMutation({
+        mutationKey: ['login'],
+        mutationFn: signup,
+        onSuccess: (response) => {
+
+            toast.success(response?.message)
+
+            router.replace('/auth/login')
+            reset()
+
+        },
+        onError: (error) => {
+
+            toast.error(error?.message || "Signup failed")
+        }
+
+    })
+
     function onsubmit(data: ISignup) {
         console.log(data)
+        mutate(data)
     }
-
 
     return (
 
@@ -44,13 +71,13 @@ function Signup() {
                         <form onSubmit={handleSubmit(onsubmit)} className='space-y-2 flex flex-col text-center justify-center h-full'>
 
                             <Input required={true} label='Email' name='email' register={register} error={errors?.email?.message} placeholder='Email' />
-                            <Input required={true} label='Username' name='username' register={register} error={errors?.username?.message} placeholder='Username' />
+                            <Input required={true} label='Username' name='userName' register={register} error={errors?.userName?.message} placeholder='Username' />
                             <Input required={true} label='Password' name='password' register={register} error={errors?.password?.message} placeholder='Password' />
                             <Input required={true} label='Phone Number' name='phoneNumber' register={register} error={errors?.phoneNumber?.message} type='text' placeholder='Phone number' />
 
 
 
-                            <button className=' border-2 border-gray-600 p-2 rounded-xl cursor-pointer'>Login</button>
+                            <button className=' border-2 border-gray-600 p-2 rounded-xl cursor-pointer'>Sign up</button>
                         </form>
 
                         {/* signup section */}

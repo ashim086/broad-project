@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ProductSchema } from '@/schema/admin.product.schema'
 import ImageUploaderController from '../common/input/file-upload'
-import { QueryClient, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 import { addProduct } from '@/api/product'
 import { useRouter } from 'next/navigation'
@@ -48,6 +48,13 @@ function ProductAdd() {
         }
     })
 
+    if (isError) {
+        return (
+            <div>
+                <h1>Error while adding</h1>
+            </div>
+        )
+    }
     function onsubmit(data: any) {
         const formData = new FormData();
 
@@ -76,7 +83,6 @@ function ProductAdd() {
 
                 <form className=' space-y-3 items-center flex flex-col w-full  ' onSubmit={handleSubmit(onsubmit)}>
 
-                    {/* <h1 className='text-start flex align-top'>Add Product</h1> */}
                     <Input
                         label='Product name'
                         required={true}
@@ -122,7 +128,7 @@ function ProductAdd() {
 
 
 
-                    <button className='text-white bg-black rounded-lg p-2'>
+                    <button disabled={isPending} className='text-white bg-black rounded-lg p-2'>
                         Add product
                     </button>
 

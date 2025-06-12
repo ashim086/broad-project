@@ -142,3 +142,49 @@ export const getCart = asyncHandler(async (req, res, next) => {
     return successMsG(200, data, res, "User Cart Empty");
 
 })
+
+export const deletefromwishlist = asyncHandler(async (req, res, next) => {
+    const { id } = req.params;
+    const user = req.user._id;
+
+    console.log("id", id)
+    const wishlist = await Wishlist.findById({ _id: id.toString() })
+
+    if (!wishlist) {
+        throw new customError(404, "Wishlist not found");
+    }
+
+    if (!wishlist.user.equals(user)) {
+
+        throw new customError(403, "unauthorized access denied");
+
+    }
+
+
+    await Wishlist.findByIdAndDelete({ _id: id.toString() });
+
+    return successMsG(200, null, res, "Removed from wishlist");
+});
+
+export const deletefromcart = asyncHandler(async (req, res, next) => {
+    const { id } = req.params;
+    const user = req.user._id;
+
+    console.log("id", id)
+    const wishlist = await Wishlist.findById({ _id: id.toString() })
+
+    if (!wishlist) {
+        throw new customError(404, "Cart item not found");
+    }
+
+    if (!wishlist.user.equals(user)) {
+
+        throw new customError(403, "unauthorized access denied");
+
+    }
+
+
+    await Wishlist.findByIdAndDelete({ _id: id.toString() });
+
+    return successMsG(200, null, res, "Removed from Cart");
+});

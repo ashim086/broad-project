@@ -14,6 +14,6 @@ export interface IProduct {
     description: string,
     price: number | string,
     flavour: string,
-    product?: IImage[]
+    product?: IImage[],
     files?: IImage[]
 }       

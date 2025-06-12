@@ -35,7 +35,7 @@ function FourthPage() {
     }
 
     return (
-        <main className="relative w-full px-6 pt-26">
+        <main className="relative w-full pt-26">
             <div className="relative w-full">
                 {/* Left Arrow */}
                 <button
@@ -50,7 +50,7 @@ function FourthPage() {
                 </button>
 
                 {/* Cards container */}
-                <div className="flex justify-center space-x-6 overflow-hidden px-14 pb-6">
+                <div className="flex justify-center overflow-hidden px-14 pb-6 space-x-3">
                     {chunks.length > 0 &&
                         chunks[currentChunkIndex].map((product, index) => (
                             <Card product={product} key={index} />
