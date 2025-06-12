@@ -7,17 +7,17 @@ function HeroSection() {
         // {/* // center */}
         <div className='mx-2 mb-7'>
 
-            <div className='w-full flex  my-9 items-center font-sans mx-2'>
+            <div className='w-full flex  my-9 items-center font-sans lg:mx-2'>
 
-                <p className=' text-8xl font-sans font-medium '>HEALTHCARE. REAL RESUTLS</p>
+                <p className=' lg:text-8xl lg:font-sans lg:font-medium text-3xl font-sans font-bold w-full'>HEALTHCARE. REAL RESUTLS</p>
             </div>
 
             {/* decriptionSection */}
 
-            <div className='flex font-sans space-x-6 content-between'>
+            <div className='lg:flex lg:font-sans lg:space-x-6 lg:content-between'>
 
-                <div className="w-1/3 py-6 px-6">
-                    <label className='text-2xl font-medium tracking-tight'>Take the step towards <br />a healthier, more <br />vibrant life-shop now <br />and fuel your body with <br />the best!</label>
+                <div className="lg:w-1/3 lg:py-6 lg:px-6">
+                    <label className='lg:text-2xl lg:font-medium lg:tracking-tight '>Take the step towards <br />a healthier, more <br />vibrant life-shop now <br />and fuel your body with <br />the best!</label>
 
                     <div className='flex flex-col '>
 
@@ -29,10 +29,10 @@ function HeroSection() {
 
                 {/* images section */}
 
-                <div className="w-1/3 p-6 flex justify-center h-[450px]">
+                <div className="lg:w-1/3 lg:p-6 lg:flex lg:justify-center lg:h-[450px] items-center flex justify-center mt-6">
                     {/* Left container with Premium text at the bottom */}
-                    <div className="flex flex-col justify-end h-full pb-9 px-9">
-                        <p className="bg-white rounded-4xl px-4 w-[200px] text-end border-gray-200 border-2">
+                    <div className="lg:flex lg:flex-col lg:justify-end lg:h-full lg:pb-9 lg:px-9 mr-1">
+                        <p className="lg:bg-white lg:rounded-4xl lg:px-4 lg:w-[200px] lg:text-end lg:border-gray-200 lg:border-2 border-2 border-gray-200 rounded-full text-center">
                             Premium Ingredients
                         </p>
                     </div>
@@ -46,14 +46,14 @@ function HeroSection() {
                     />
 
                     {/* Right container with two tags */}
-                    <div className="px-12 text-center flex flex-col justify-between h-full py-6">
-                        <p className="w-[150px] bg-white rounded-4xl border-gray-200 border-2">Allergen-Free</p>
-                        <p className="bg-white rounded-4xl mt-[200px] border-gray-200 border-2">Non-GMO</p>
+                    <div className="lg:px-12 lg:text-center lg:flex lg:flex-col lg:justify-between lg:h-full lg:py-6">
+                        <p className="lg:w-[150px] lg:bg-white lg:rounded-4xl lg:border-gray-200 lg:border-2 ml-3 border-2 text-center border-gray-100 rounded-full px-1">Allergen-Free</p>
+                        <p className="lg:bg-white lg:rounded-4xl lg:mt-[200px] lg:border-gray-200 lg:border-2 ml-3 border-2  border-gray-100 rounded-full mt-6 py-1 pl-1">Non-GMO</p>
                     </div>
                 </div>
 
-                <div className="flex w-1/3 flex-col items-start pl-40 ">
-                    <p className="w-[244px] text-left font-medium text-md">
+                <div className="lg:flex lg:w-1/3 lg:flex-col lg:items-start lg:pl-40 ">
+                    <p className="lg:w-[244px] lg:text-left lg:font-medium lg:text-md pt-2 pl-6">
                         Our products are carefully formulated with science-backed ingredients, free from artificial additives, and made to the highest standards.
                     </p>
 

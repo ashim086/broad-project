@@ -1,7 +1,21 @@
+'use client'
+
 import React from 'react'
-import Card from '../common/card'
+import Card from '../common/cards/card'
+import { useQuery } from '@tanstack/react-query'
+import { getlatestproducts } from '@/api/product'
+import { IProduct } from '@/interface/product.interface'
 
 function SecondPage() {
+
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['get-all-latest-products'],
+        queryFn: getlatestproducts,
+
+    })
+
+    console.log("data", data)
     return (
         <div className=' font-sans px-9 pb-6 mt-29'>
 
@@ -33,12 +47,11 @@ function SecondPage() {
 
 
             <div className='flex space-x-6 my-6'>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {data?.data.slice(0, 5).map((product: IProduct, index: number) => (
+                    <Card product={product} key={index} />
+                ))}
             </div>
+
 
         </div>
     )

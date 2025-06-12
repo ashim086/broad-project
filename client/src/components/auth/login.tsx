@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import Input from '../common/input';
+import Input from '../common/input/input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '@/schema/auth.schema';
@@ -38,7 +38,7 @@ function LoginForm() {
         mutationFn: login,
         onSuccess: (response) => {
 
-            toast.success(response?.message)
+            toast.success(response?.message)    
 
             Cookies.set('access_token', response?.token)
             localStorage.setItem('user_info', JSON.stringify(response?.data))

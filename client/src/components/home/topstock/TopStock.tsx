@@ -1,7 +1,19 @@
+'use client'
+
 import React from 'react'
-import Card from '../../common/card'
+import Card from '../../common/cards/card'
+import { useQuery } from '@tanstack/react-query'
+import { getMostbuyproducts } from '@/api/product'
+import { IProduct } from '@/interface/product.interface'
 
 function TopStock() {
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['get-all-mostBuy-products'],
+        queryFn: getMostbuyproducts,
+
+    })
+
     return (
         <main className='mt-16'>
             <h1 className='text-4xl font-semibold font-sans tracking-wide text-black m-6'>
@@ -10,12 +22,11 @@ function TopStock() {
             </h1>
 
             <div className='px-6 pt-16 content-center text-center  '>
-                <div className='flex space-x-6  '>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+
+                <div className='flex space-x-6 my-6'>
+                    {data?.data.slice(0, 5).map((product: IProduct, index: number) => (
+                        <Card product={product} key={index} />
+                    ))}
                 </div>
             </div>
         </main>

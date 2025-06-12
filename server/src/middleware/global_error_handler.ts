@@ -6,7 +6,7 @@ const globalError = (err: any, req: Request, res: Response, next: NextFunction) 
     let statusCode = err.statusCode || 500
 
     const msg = {
-        errorMessage: err.message || "internal server error",
+        message: err.message || "internal server error",
         status: err.status || "fail",
         statusCode,
         success: err.success || false

@@ -7,7 +7,7 @@ import Fifth from "@/components/landing/Fifth";
 
 export default function Landing() {
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="lg:h-screen lg:snap-y lg:snap-mandatory lg:overflow-y-scroll lg:scroll-smooth">
       <section className="snap-start h-screen">
         <Header />
         <HeroSection />

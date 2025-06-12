@@ -9,6 +9,7 @@ const upload = () => {
 
         cloudinary: cloudinary,
         params: async (req, file) => {
+
             return {
                 folder: "medi-care",
                 public_id: Date.now() + '-' + Math.round(Math.random() * 1E9) + file.originalname,

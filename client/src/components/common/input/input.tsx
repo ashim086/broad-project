@@ -18,11 +18,11 @@ const Input: React.FC<IProps> = ({ required, label, name, error, register, multi
 
     console.log("input error ", error)
     return (
-        <div className='flex flex-col gap-1 font-sans font-medium '>
-            {/* <div className='flex '>
+        <div className='flex flex-col gap-1 font-sans font-medium w-full'>
+            <div className='flex font-sans '>
                 <label htmlFor={name} className=' text-lg  font-sans'>{label}</label>
                 {required && <LuAsterisk size={18} className='text-red-500' />}
-            </div> */}
+            </div>
             {!multiline ? <input
                 {...register(name)}
                 placeholder={placeholder}

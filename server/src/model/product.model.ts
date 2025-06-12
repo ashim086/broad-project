@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name cannot be empty"]
+        required: [true, "Name cannot be empty"],
+        unique: [true, "Product already exists"]
     },
     price: {
         type: Number,
@@ -12,6 +13,7 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        required: true
     },
     flavour: {
         type: String
@@ -39,7 +41,7 @@ const productSchema = new mongoose.Schema({
         url: {
             type: String
         }
-    }]
+    },]
 }, {
     timestamps: true
 });

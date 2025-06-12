@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import Input from '../common/input';
+import Input from '../common/input/input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signupSchema } from '@/schema/auth.schema';

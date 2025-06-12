@@ -1,11 +1,11 @@
-import Wishlist from '@/components/home/wishlist/wishlist'
+import ProductAdd from '@/components/admin/productAdd'
 import React from 'react'
 
 function Page() {
     return (
         <div>
+            <ProductAdd />
 
-            <Wishlist />
         </div>
     )
 }
