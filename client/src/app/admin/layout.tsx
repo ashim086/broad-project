@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from "react"
-import { WithAuth } from "../auth/withAuth"
+import { WithAuth } from "../../components/auth/withAuth"
 
 const Layout = ({ children }: { children: ReactNode }) => {
 
