@@ -1,8 +1,19 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import React from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 
 function HeroSection() {
+
+    const router = useRouter();
+
+    function home() {
+
+        router.push(`/home`)
+    }
+
     return (
         // {/* // center */}
         <div className='mx-2 mb-7'>
@@ -23,7 +34,9 @@ function HeroSection() {
 
                         <p className='my-9'>Learn more</p>
                         <hr className='w-fit'></hr>
-                        <button className='w-[144px] border text-white bg-black rounded-4xl flex p-2 items-center justify-center'>Shop  <FaArrowRightLong className='bg-white text-black mx-2 rounded-full' /></button>
+                        <button className='w-[144px] border text-white bg-black rounded-4xl flex p-2 items-center justify-center space-x-9 cursor-pointer ' onClick={home}>Shop
+                            <FaArrowRightLong className='bg-white text-black mx-2 rounded-full p-1' size={20} />
+                        </button>
                     </div>
                 </div>
 

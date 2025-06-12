@@ -1,5 +1,8 @@
+'use client'
+
 import NavBar from '@/components/layout/navbar'
 import React, { ReactNode } from 'react'
+import { WithAuth } from '../auth/withAuth'
 
 function Layout({ children }: { children: ReactNode }) {
     return (
@@ -14,4 +17,4 @@ function Layout({ children }: { children: ReactNode }) {
     )
 }
 
-export default Layout
+export default WithAuth(Layout, ["Admin", "User"])
