@@ -20,9 +20,8 @@ const dbConnect = (URI) => __awaiter(void 0, void 0, void 0, function* () {
             .then(() => console.log('database connected successfully'));
     }
     catch (error) {
-        if (error) {
-            throw new Error;
-        }
+        console.error(' Database connection failed:', error);
+        process.exit(1);
     }
 });
 exports.dbConnect = dbConnect;
