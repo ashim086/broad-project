@@ -6,6 +6,7 @@ function Page() {
         <div>
 
             <Cart />
+            
         </div>
     )
 }
