@@ -8,7 +8,8 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const productSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
-        required: [true, "Name cannot be empty"]
+        required: [true, "Name cannot be empty"],
+        unique: [true, "Product already exists"]
     },
     price: {
         type: Number,
@@ -17,6 +18,7 @@ const productSchema = new mongoose_1.default.Schema({
     },
     description: {
         type: String,
+        required: true
     },
     flavour: {
         type: String
@@ -30,7 +32,21 @@ const productSchema = new mongoose_1.default.Schema({
         type: Number,
         default: 0,
         min: [0, "Likes count cannot be negative"]
-    }
+    },
+    files: [{
+            public_id: {
+                type: String,
+            },
+            filename: {
+                type: String
+            },
+            originalname: {
+                type: String
+            },
+            url: {
+                type: String
+            }
+        },]
 }, {
     timestamps: true
 });

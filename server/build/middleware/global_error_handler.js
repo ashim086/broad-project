@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const globalError = (err, req, res, next) => {
     let statusCode = err.statusCode || 500;
     const msg = {
-        errorMessage: err.message || "internal server error",
+        message: err.message || "internal server error",
         status: err.status || "fail",
         statusCode,
         success: err.success || false

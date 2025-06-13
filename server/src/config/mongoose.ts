@@ -13,7 +13,7 @@ export const dbConnect = async (URI: string) => {
 
         if (error) {
 
-            throw new Error
+            throw error
         }
 
     }
