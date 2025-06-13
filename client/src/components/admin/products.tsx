@@ -11,6 +11,7 @@ import Button from '../common/buttons/button'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Products() {
 
@@ -131,8 +132,12 @@ function Products() {
     if (data?.data.length <= 0) {
 
         return (
-            <div className="flex justify-center items-center h-screen text-red-400">
-                empty
+            <div className="flex justify-center items-center h-screen  space-x-7">
+                <label className='text-red-400'>
+
+                    No products found
+                </label>
+                <Link href={'/admin/product/add'} className='border p-2 bg-black text-white rounded-lg'>add product</Link>
             </div>
         )
     }

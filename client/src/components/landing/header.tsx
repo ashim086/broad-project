@@ -57,7 +57,7 @@ function Header() {
                         <button className='bg-black text-white px-3 py-2 rounded-3xl cursor-pointer' onClick={() => router.push('/admin/product')}>
                             Admin
                         </button>
-                        <LogOut />
+                        <LogOut  className='cursor-pointer'/>
                     </div>
                 ) : (
                     <div className="flex space-x-2">

@@ -193,7 +193,7 @@ const ProductEdit = ({ id }: IProps) => {
                     <button
                         type='submit'
                         disabled={isPending}
-                        className='w-full text-white bg-black rounded-lg p-2 hover:bg-gray-900 transition'
+                        className='w-full text-white bg-black rounded-lg p-2 hover:bg-gray-900 transition cursor-pointer'
                     >
                         {isPending ? 'Updating...' : 'Update Product'}
                     </button>

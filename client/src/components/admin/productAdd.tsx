@@ -50,11 +50,7 @@ function ProductAdd() {
     })
 
     if (isError) {
-        return (
-            <div>
-                <h1>Error while adding</h1>
-            </div>
-        )
+        toast.error("Error while adding")
     }
     function onsubmit(data: any) {
         const formData = new FormData();
@@ -139,8 +135,11 @@ function ProductAdd() {
 
 
 
-                    <button disabled={isPending} className='text-white bg-black rounded-lg p-2'>
-                        Add product
+                    <button disabled={isPending} className='text-white bg-black rounded-lg p-2 cursor-pointer'>
+                        {
+                            isPending ? "Adding..." : "Add product"
+                        }
+
                     </button>
 
                 </form>
