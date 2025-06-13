@@ -92,3 +92,16 @@ export const delproduct = async (id: string) => {
 
     }
 }
+
+export const editProduct = async (id: string, data: FormData | Partial<IProduct>) => {
+    try {
+        const response = await apiInstance.patch(`/product/${id}`, data, {
+            headers: data instanceof FormData ? {
+                'Content-Type': 'multipart/form-data',
+            } : undefined
+        });
+        return response?.data;
+    } catch (error: any) {
+        throw error?.response?.data;
+    }
+}

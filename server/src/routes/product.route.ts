@@ -4,8 +4,8 @@ import upload from "../middleware/uploader";
 
 const productRoute = Router()
 
-productRoute.post('/', upload().array('product', 3), product)
-productRoute.patch('/:id', upload().array('product', 3), updateProduct)
+productRoute.post('/', upload().array('product', 1), product)
+productRoute.patch('/:id', upload().array('product', 1), updateProduct)
 productRoute.delete('/:id', deleteProduct)
 productRoute.get('/', products)
 productRoute.get('/latest', getLatestProducts)

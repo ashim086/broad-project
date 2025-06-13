@@ -3,17 +3,21 @@
 import NavBar from '@/components/layout/navbar'
 import React, { ReactNode } from 'react'
 import { WithAuth } from '../../components/auth/withAuth'
+import Footer from '@/components/layout/Footer'
 
 function Layout({ children }: { children: ReactNode }) {
     return (
-
-
-        <main >
-
+        <div className="flex flex-col min-h-screen">
             <NavBar />
-            {children}
 
-        </main>
+            <main className="flex flex-col flex-grow ">
+                <div className="flex-grow  min-h-screen">
+                    {children}
+                </div>
+
+                <Footer />
+            </main>
+        </div>
     )
 }
 

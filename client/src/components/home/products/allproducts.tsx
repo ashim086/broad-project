@@ -30,9 +30,9 @@ function ProductGrid() {
     if (error) return <div className="text-center mt-20 text-red-500">Error loading products</div>
 
     return (
-        <main className="mt-20 bg-gray-200">
+        <main className="mt-20 mb-20">
             <div className="w-full">
-                <h1 className="text-4xl font-bold text-start text-gray-800 mb-12">
+                <h1 className="text-4xl font-bold text-start text-gray-800 mb-12 pl-6">
                     Our Products
                 </h1>   
 

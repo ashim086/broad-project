@@ -14,6 +14,22 @@ function TopStock() {
 
     })
 
+    if (isLoading) {
+        return <div className="flex justify-center items-center h-screen">Loading</div>
+    }
+
+    if (error) {
+        return <div className="flex justify-center items-center h-screen">Failed to load </div>
+    }
+
+    if (data?.data.length <= 0) {
+
+        return (
+            <div className="flex justify-center items-center h-screen text-red-400">
+                Empty
+            </div>
+        )
+    }
     return (
         <main className='mt-16 font-sans'>
             <h1 className='text-4xl font-bold font-sans tracking-wide text-black m-6 '>

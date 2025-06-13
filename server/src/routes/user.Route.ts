@@ -6,4 +6,4 @@ const userRoute = Router()
 userRoute.post('/signup', signup)
 userRoute.post('/login', login)
 
-export default userRoute    
+export default userRoute

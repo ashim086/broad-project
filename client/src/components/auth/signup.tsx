@@ -10,7 +10,6 @@ import { useMutation } from '@tanstack/react-query';
 import { signup } from '@/api/auth.api';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
 
 
 function Signup() {
@@ -31,7 +30,7 @@ function Signup() {
 
 
 
-    const { isPending, isSuccess, error, mutate } = useMutation({
+    const { isPending, mutate } = useMutation({
         mutationKey: ['login'],
         mutationFn: signup,
         onSuccess: (response) => {
@@ -77,14 +76,14 @@ function Signup() {
 
 
 
-                            <button className=' border-2 border-gray-600 p-2 rounded-xl cursor-pointer'>Sign up</button>
+                            <button className=' border-2 border-gray-600 p-2 rounded-xl cursor-pointer bg-black text-white' disabled={isPending}>Sign up</button>
                         </form>
 
                         {/* signup section */}
                         <div className='flex  space-x-2.5 pb-4'>
 
                             <label className='text-sm text-gray-400'>
-                                Don't have an account yet?
+                                Don`&apos;`t have an account yet?
 
                             </label>
                             <Link href={'/auth/login'}>

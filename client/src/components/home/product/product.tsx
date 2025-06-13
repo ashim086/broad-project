@@ -22,6 +22,9 @@ const Product = (props: Iprops) => {
         queryKey: ['product']
     })
 
+    if (isLoading) {
+        return <div className="flex justify-center items-center h-screen">Loading</div>
+    }
 
     return (
         <div className="flex justify-center items-center min-h-screen overflow-hidden  p-4">

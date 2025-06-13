@@ -10,6 +10,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 import { addProduct } from '@/api/product'
 import { useRouter } from 'next/navigation'
+import Button from '../common/buttons/button'
 
 function ProductAdd() {
 
@@ -75,9 +76,19 @@ function ProductAdd() {
 
     }
 
+    function backtolist() {
+
+        router.push('/admin/product')
+    }
 
     return (
-        <div className='h-screen font-sans flex justify-center items-center'>
+        <div className='font-sans flex flex-col justify-center items-center'>
+
+            <div className='flex justify-between w-full px-5 pb-2 py-4 '>
+
+                <h1 className=' font-semibold text-2xl'>Add Product</h1>
+                <Button text='<  Back to list  ' onClick={backtolist} />
+            </div>
 
             <div className='  border  p-7 rounded-lg '>
 

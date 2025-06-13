@@ -52,7 +52,7 @@ const Card: React.FC<IProps> = ({ product }) => {
     }
 
     const handleProductClick = () => {
-        router.push(`/home/${product._id}`)
+        router.push(`/home/product/${product._id}`)
     }
 
     if (!product) return null
@@ -68,6 +68,7 @@ const Card: React.FC<IProps> = ({ product }) => {
                 <Image
                     src={product?.files?.[0]?.url || '/fallback.jpg'}
                     alt={product.name}
+                    sizes='34'
                     fill
                     className='object-contain rounded-xl bg-white'
                 />
@@ -112,7 +113,7 @@ const Card: React.FC<IProps> = ({ product }) => {
                 whileTap={{ scale: 0.97 }}
                 onClick={(e) => {
                     e.stopPropagation()
-                    router.push(`/checkout/${product._id}`)
+                    router.push(`/home/product/${product._id}`)
                 }}
             >
                 Buy Now

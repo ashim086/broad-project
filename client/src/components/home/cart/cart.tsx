@@ -1,8 +1,7 @@
 'use client'
 
-import { cartList, wishList } from "@/api/wishlist.api"
+import { cartList } from "@/api/wishlist.api"
 import CartCard from "@/components/common/cards/cart.card"
-import { IProduct } from "@/interface/product.interface"
 import { ICart } from "@/interface/wishlist.interface"
 import { useQuery } from "@tanstack/react-query"
 

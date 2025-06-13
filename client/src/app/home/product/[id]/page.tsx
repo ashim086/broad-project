@@ -10,7 +10,7 @@ type Props = {
 
 const Page = async (props: Props) => {
 
-    const { id } = await props.params
+    const { id } = await props.params   
 
     console.log("product id", id)
     return (

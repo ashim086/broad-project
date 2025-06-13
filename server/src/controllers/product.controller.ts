@@ -81,7 +81,8 @@ export const updateProduct = asyncHandler(async (req, res, next) => {
             product.files.push({
                 filename: file.filename,
                 originalname: file.originalname,
-                public_id: file.path
+                public_id: file.path,
+                url: file.path,
             })
         )
 

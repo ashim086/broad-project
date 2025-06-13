@@ -5,6 +5,7 @@ import Card from '../common/cards/card'
 import { useQuery } from '@tanstack/react-query'
 import { getlatestproducts } from '@/api/product'
 import { IProduct } from '@/interface/product.interface'
+import Link from 'next/link'
 
 function SecondPage() {
 
@@ -14,6 +15,23 @@ function SecondPage() {
         queryFn: getlatestproducts,
 
     })
+
+    if (isLoading) {
+        return <div className="flex justify-center items-center h-screen">Loading</div>
+    }
+
+    if (error) {
+        return <div className="flex justify-center items-center h-screen">Failed to load </div>
+    }
+
+    if (data?.data.length <= 0) {
+
+        return (
+            <div className="flex justify-center items-center h-screen text-red-400">
+                Empty
+            </div>
+        )
+    }
 
     console.log("data", data)
     return (
@@ -37,10 +55,10 @@ function SecondPage() {
                     </div>
                     <div className='pt-14'>
 
-                        <p>Whether you're looking to strengthen
-                            <br />your immune system, enhance your<br /> energy levels, or promote overall <br />wellness, we've got you covered.</p>
+                        <p>Whether you`&apos;`re looking to strengthen
+                            <br />your immune system, enhance your<br /> energy levels, or promote overall <br />wellness, we`&apos;`ve got you covered.</p>
                         <br />
-                        <label>View all products</label>
+                        <Link href={'/home'}>View all products</Link>
                     </div>
                 </div>
             </div>

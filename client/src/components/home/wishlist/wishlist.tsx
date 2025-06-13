@@ -14,11 +14,6 @@ const Wishlist = () => {
 
     })
 
-    const handleRemove = (id: string) => {
-        // logic to remove item
-        console.log('Remove product with id:', id)
-    }
-
     if (isLoading) {
         return <div className="flex justify-center items-center h-screen">Loading wishlist...</div>
     }

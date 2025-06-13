@@ -12,9 +12,10 @@ interface IProps {
     multiline?: boolean,
     placeholder?: string;
     type?: string
+    value?: string
 }
 
-const Input: React.FC<IProps> = ({ required, label, name, error, register, multiline, placeholder, type }) => {
+const Input: React.FC<IProps> = ({ required, label, name, error, register, multiline, placeholder, type ,value}) => {
 
     console.log("input error ", error)
     return (
@@ -27,11 +28,13 @@ const Input: React.FC<IProps> = ({ required, label, name, error, register, multi
                 {...register(name)}
                 placeholder={placeholder}
                 type={type}
+                value={value}
                 className={`border border-gray-400 rounded-md py-3 px-3 ${error ? "focus:outline-red-500 border-red-500" : 'focus:outline-blue-400'} 
                     ${type === "number" ? "no-spinner" : ""}`}
             /> :
                 <textarea
                     {...register(name)}
+                    value={value}
                     placeholder={placeholder}
                     className='min-h-[120px] border border-gray-400 rounded-md py-2 px-3 focus:outline-blue-400'
                 />}

@@ -1,7 +1,7 @@
 'use client'
 
 import { delproduct, products } from '@/api/product'
-import { QueryClient, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 import ActionButtons from '../common/buttons/actionButton'
 import { createColumnHelper } from '@tanstack/react-table'
@@ -10,6 +10,7 @@ import Table from '../common/table/table'
 import Button from '../common/buttons/button'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 function Products() {
 
@@ -21,7 +22,8 @@ function Products() {
     })
 
     const queryCLient = useQueryClient()
-    const { isPending, isError, mutate } = useMutation({
+
+    const { isPending, mutate } = useMutation({
 
         mutationFn: delproduct,
         mutationKey: ['delete-product'],
@@ -36,6 +38,11 @@ function Products() {
         }
     })
 
+    if (isPending) {
+
+        toast.loading('Deleting Product')
+    }
+
     const router = useRouter()
     const columnHelper = createColumnHelper<any>()
 
@@ -43,6 +50,10 @@ function Products() {
 
         console.log("id", id)
         mutate(id)
+    }
+    function onEdit(id: string) {
+
+        router.replace(`/admin/product/edit/${id}`)
     }
 
     function add() {
@@ -87,12 +98,14 @@ function Products() {
             header: () => "Product Image",
             cell: info => {
                 const files = info.getValue();
-                const imageUrl = files?.[0]?.url;
+                const imageUrl = files?.[0]?.url || files?.[0]?.public_id;
 
                 return imageUrl ? (
-                    <img
+                    <Image
                         src={imageUrl}
                         alt="Product"
+                        width={23}
+                        height={23}
                         className="w-16 h-16 object-cover rounded"
                     />
                 ) : (
@@ -103,13 +116,30 @@ function Products() {
         columnHelper.accessor('action', {
             id: 'action',
             header: 'Action',
-            cell: (info) => <ActionButtons onEdit={() => onDelete(info.row.original._id)} onDelete={() => onDelete(info.row.original._id)} />
+            cell: (info) => <ActionButtons onEdit={() => onEdit(info.row.original._id)} onDelete={() => onDelete(info.row.original._id)} />
         }),
     ]
 
+    if (isLoading) {
+        return <div className="flex justify-center items-center h-screen">Loading ...</div>
+    }
+
+    if (error) {
+        return <div className="flex justify-center items-center h-screen">Failed to load </div>
+    }
+
+    if (data?.data.length <= 0) {
+
+        return (
+            <div className="flex justify-center items-center h-screen text-red-400">
+                empty
+            </div>
+        )
+    }
+
     return (
         <main className='h-full'>
-            <div className='flex justify-between w-full px-5 pb-2 py-4 '>
+            <div className='flex justify-between  px-5 pb-2 py-4 '>
 
                 <h1 className=' font-semibold text-2xl'>Products</h1>
                 <Button text='Add Product' onClick={add} />

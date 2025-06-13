@@ -1,9 +1,11 @@
 import { Home, LogOutIcon, Search, User } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { FaHeart } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
+import { SiSuno } from 'react-icons/si'
 
 function NavBar() {
 
@@ -41,28 +43,27 @@ function NavBar() {
         },
     ]
 
+    const router = useRouter()
+    function onLanding() {
+
+        router.replace('/')
+
+    }
 
     return (
         <div className='flex -6 w-full justify-between p-6  border-gray-200 shadow-lg rounded-lg '>
 
-
-
-            <div className='flex space-x-7  border-gray-200 rounded-4xl  px-6 justify-end items-end '>
-
-                {
-                    user.map((items, index) =>
-                        <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
-                            {items.icon}
-
-
-                        </div>)
-                }
-
-
+            <div className='flex items-center' onClick={onLanding}>
+                <SiSuno size={25} />
+                <label className='p-2 font-semibold cursor-pointer text-2xl'>
+                    Life Harmony
+                </label>
             </div>
 
 
-            <div className='flex space-x-7  border-gray-200 rounded-4xl  px-6 content-center '>
+
+
+            <div className='flex space-x-7  border-gray-200 rounded-4xl  px-6 content-center ml-56'>
 
                 {
                     navbarItems.map((items, index) => (
@@ -82,9 +83,21 @@ function NavBar() {
 
 
                 <input type='text' className='border border-gray-200 broder-2 p-2 rounded-4xl' placeholder='Search...' />
-                <Search className='mr-2' />
+                <Search className='mr-2' /> 
+
+                <div className='flex space-x-7  border-gray-200 rounded-4xl  px-6 justify-end items-end '>
+
+                    {
+                        user.map((items, index) =>
+                            <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
+                                {items.icon}
 
 
+                            </div>)
+                    }
+
+
+                </div>
             </div>
 
 

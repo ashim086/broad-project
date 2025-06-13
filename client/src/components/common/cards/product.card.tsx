@@ -2,7 +2,7 @@ import { IProduct } from "@/interface/product.interface"
 import Image from "next/image"
 import Button from "../buttons/button"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { addtocart, addtowishlist } from "@/api/wishlist.api"
+import { addtocart } from "@/api/wishlist.api"
 import toast from "react-hot-toast"
 import React from "react"
 
@@ -15,7 +15,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
 
     const queryClient = useQueryClient();
 
-    const { mutate, isPending } = useMutation({
+    const { mutate } = useMutation({
         mutationFn: addtocart,
         onSuccess: (response) => {
             queryClient.invalidateQueries({ queryKey: ['cart'] })
@@ -26,16 +26,16 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
         }
     })
 
-    const { mutate: addToWishlist, isPending: wishlistPending } = useMutation({
-        mutationFn: addtowishlist,
-        onSuccess: (response) => {
-            queryClient.invalidateQueries({ queryKey: ['wishlist'] })
-            toast.success(response?.message || "Added to wishlist")
-        },
-        onError: (error: any) => {
-            toast.error(error?.message || "Something went wrong")
-        }
-    })
+    // const { mutate: addToWishlist, isPending: wishlistPending } = useMutation({
+    //     mutationFn: addtowishlist,
+    //     onSuccess: (response) => {
+    //         queryClient.invalidateQueries({ queryKey: ['wishlist'] })
+    //         toast.success(response?.message || "Added to wishlist")
+    //     },
+    //     onError: (error: any) => {
+    //         toast.error(error?.message || "Something went wrong")
+    //     }
+    // })
 
     function handleAddToCart() {
         mutate(product._id)

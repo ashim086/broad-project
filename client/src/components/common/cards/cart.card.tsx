@@ -5,8 +5,8 @@ import { IProduct } from "@/interface/product.interface"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import Image from "next/image"
 import toast from "react-hot-toast"
-import wishlistCard from "./wishlistCard"
 import React from "react"
+import { useRouter } from "next/navigation"
 
 interface IProps {
     product: IProduct
@@ -33,6 +33,10 @@ const CaartCard: React.FC<IProps> = ({ product, cartID }) => {
         }
     })
 
+    if (isPending) {
+        toast.loading('Removing...')
+    }
+    const router = useRouter()
 
     function onRemove() {
 
@@ -40,6 +44,10 @@ const CaartCard: React.FC<IProps> = ({ product, cartID }) => {
         mutate(cartID)
     }
 
+    function onclick() {
+
+        router.push(`/home/${product?._id}`)
+    }
     return (
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-xl shadow-md bg-white w-full my-2">
@@ -50,10 +58,12 @@ const CaartCard: React.FC<IProps> = ({ product, cartID }) => {
                         alt={product.name}
                         src={product?.files?.[0]?.url || '/fallback.jpg'}
                         fill
-                        className="object-contain rounded-md"
+                        onClick={onclick}
+                        className="object-contain rounded-md cursor-pointer"
                     />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 cursor-pointer" onClick={onclick}>
+
                     <h3 className="text-base font-semibold text-gray-800 truncate">{product?.name}</h3>
                     <p className="text-sm text-gray-500 mt-1">Price: <span className="font-medium text-gray-700">${product?.price}</span></p>
                 </div>

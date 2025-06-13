@@ -34,6 +34,23 @@ function FourthPage() {
         setCurrentChunkIndex((prev) => Math.min(prev + 1, chunks.length - 1))
     }
 
+    if (isLoading) {
+        return <div className="flex justify-center items-center h-screen">Loading</div>
+    }
+
+    if (error) {
+        return <div className="flex justify-center items-center h-screen">Failed to load </div>
+    }
+
+    if (data?.data.length <= 0) {
+
+        return (
+            <div className="flex justify-center items-center h-screen text-red-400">
+                Empty
+            </div>
+        )
+    }
+
     return (
         <main className="relative w-full pt-26">
             <div className="relative w-full">
