@@ -103,6 +103,9 @@ function LoginForm() {
                             <Link href="/auth/signup" className='text-blue-800 font-medium text-sm cursor-pointer'>
                                 Sign Up
                             </Link>
+                            <Link href="/" className='text-blue-800 font-medium text-sm cursor-pointer'>
+                               Back to page
+                            </Link>
                         </div>
                     </div>
                 </div>
