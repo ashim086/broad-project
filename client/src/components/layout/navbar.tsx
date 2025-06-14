@@ -40,13 +40,6 @@ function NavBar() {
     const user = [
         {
             icon: <User />
-        }, {
-            icon: <LogOutIcon
-                onClick={() => {
-                    Cookies.remove('access_token')
-                    router.push('/auth/login')
-                    toast.success("log out")
-                }} />
         },
     ]
 
@@ -98,6 +91,12 @@ function NavBar() {
                         user.map((items, index) =>
                             <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
                                 {items.icon}
+                                <LogOutIcon
+                                    onClick={() => {
+                                        Cookies.remove('access_token')
+                                        router.push('/auth/login')
+                                        toast.success("log out")
+                                    }} />
 
 
                             </div>)
