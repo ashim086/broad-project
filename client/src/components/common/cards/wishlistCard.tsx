@@ -41,7 +41,7 @@ const WishlistCard: React.FC<IProps> = ({ product, wishlistID ,disable}) => {
 
     function onclick() {
 
-        router.push(`/home/${product?._id}`)
+        router.push(`/home/product/${product?._id}`)
     }
 
     function onRemove() {

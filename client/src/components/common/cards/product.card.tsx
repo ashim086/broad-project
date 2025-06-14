@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { addtocart } from "@/api/wishlist.api"
 import toast from "react-hot-toast"
 import React from "react"
+import { useRouter } from "next/navigation"
 
 interface IProps {
     product: IProduct
@@ -41,6 +42,13 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
         mutate(product._id)
     }
 
+    const router = useRouter()
+
+    function onBuy() {
+        router.push(`/home/product/purchase/${product?._id}`)
+
+    }
+
     console.log("data", product)
 
     return (
@@ -65,7 +73,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                 </div>
 
                 <div className="mt-6 flex space-x-4">
-                    <Button text="Buy Now" />
+                    <Button text="Buy Now" onClick={onBuy}/>
                     <Button text="Add to Cart" onClick={handleAddToCart} />
                 </div>
             </div>

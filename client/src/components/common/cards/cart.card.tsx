@@ -41,12 +41,13 @@ const CaartCard: React.FC<IProps> = ({ product, cartID }) => {
     function onRemove() {
 
         console.log(cartID)
-        mutate(cartID)
+        mutate(cartID)  
     }
 
     function onclick() {
 
-        router.push(`/home/${product?._id}`)
+        router.push(`/home/product/${product?._id}`)
+
     }
     return (
 

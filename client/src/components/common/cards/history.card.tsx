@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 interface IProps {
     product: IProduct;
-    purchaseID: string;   // Use clearer name: purchaseID instead of wishlistID
+    purchaseID: string;   
     disable?: boolean;
 }
 
@@ -20,9 +20,9 @@ const HistoryCard: React.FC<IProps> = ({ product, purchaseID, disable }) => {
 
     const { mutate, isPending } = useMutation({
         mutationFn: removeHistory,
-        mutationKey: ['delete-purchase-history'], // clearer key
+        mutationKey: ['delete-purchase-history'], 
         onSuccess: (response) => {
-            toast.dismiss(); // dismiss loading toast if any
+            toast.dismiss();
             toast.success(response?.message || "Deleted successfully!");
             queryClient.invalidateQueries(({ queryKey: ['get-all-purchase-products'] }))
 

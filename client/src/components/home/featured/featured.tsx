@@ -35,7 +35,7 @@ function FeaturedStock() {
         <main className='mt-16'>
             <h1 className='text-4xl font-semibold font-sans tracking-wide text-black m-6'>
 
-                Customer`&apos;`s Favourite Stock
+                Customer&apos;s Favourite Stock
             </h1>
 
             <div className='px-6 pt-16 content-center text-center  '>
