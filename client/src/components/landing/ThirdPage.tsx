@@ -26,7 +26,7 @@ export default function SupplementOfferPage() {
                         <p className="text-3xl font-bold text-gray-800">$38.99</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <button className="bg-black text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-800 transition-all"
+                        <button className="bg-black text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-800 transition-all cursor-pointer"
                             onClick={() => {
                                 router.push('/home/')
                             }} >
