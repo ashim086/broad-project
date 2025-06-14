@@ -1,4 +1,4 @@
-import { Home, LogOutIcon, Search, User } from 'lucide-react'
+import { Home, LogOut, Search, User } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -91,7 +91,7 @@ function NavBar() {
                         user.map((items, index) =>
                             <div className='flex items-center space-x-2  h-full rounded-4xl p-2 cursor-pointer' key={index}>
                                 {items.icon}
-                                <LogOutIcon
+                                <LogOut className='cursor-pointer'
                                     onClick={() => {
                                         Cookies.remove('access_token')
                                         router.push('/auth/login')
