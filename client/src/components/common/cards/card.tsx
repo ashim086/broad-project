@@ -113,7 +113,7 @@ const Card: React.FC<IProps> = ({ product }) => {
                 whileTap={{ scale: 0.97 }}
                 onClick={(e) => {
                     e.stopPropagation()
-                    router.push(`/home/product/${product._id}`)
+                    router.push(`/home/product/purchase/${product._id}`)
                 }}
             >
                 Buy Now

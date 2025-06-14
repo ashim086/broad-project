@@ -12,9 +12,31 @@ const purchaseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: true
+    },
+    quantity: {
+        type: Number,
+        default: 1
+    },
+    address: {
+        type: String,
+        required: [true, 'Address is required']
+    },
+    city: {
+        type: String
+    },
+    zipCode: {
+        type: Number
+    },
+    country: {
+        type: String
+    },
+    total: {
+        type: Number
     }
 },
     {
         timestamps: true
     }
 )
+
+export const Purchase = mongoose.model('purchase', purchaseSchema)

@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import cors from 'cors'
 import productRoute from './routes/product.route';
 import wishlistRoute from './routes/wishlist.route';
+import purchaseRoute from './routes/purchase.route';
 
 dotenv.config()
 const app = express();
@@ -24,6 +25,9 @@ dbConnect(URI as string)
 app.use('/api/user', userRoute)
 app.use('/api/product', productRoute)
 app.use('/api/', wishlistRoute)
+app.use('/api/purchase/', purchaseRoute)
+console.log("request came here")
+
 
 
 

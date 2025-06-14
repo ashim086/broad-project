@@ -1,5 +1,6 @@
 import { IProduct } from "@/interface/product.interface"
 import apiInstance from "."
+import { FormValues } from "@/components/home/product/chekcout"
 
 export const addProduct = async (data: IProduct) => {
 
@@ -105,3 +106,8 @@ export const editProduct = async (id: string, data: FormData | Partial<IProduct>
         throw error?.response?.data;
     }
 }
+
+export const purchaseProduct = async ({ id, data }: { id: string, data: FormValues }) => {
+    const response = await apiInstance.post(`/purchase/${id}`, data);
+    return response?.data;
+};
