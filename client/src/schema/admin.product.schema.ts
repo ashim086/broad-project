@@ -17,3 +17,12 @@ export const ProductSchema = yup.object({
             return true;
         }),
 });
+
+
+export const checkoutSchema = yup.object({
+    quantity: yup.number().required('Quantity is required'),
+    address: yup.string().required('Address is required'),
+    city: yup.string().optional(),
+    zipCode: yup.string().optional(),
+    country: yup.string().optional(),
+});

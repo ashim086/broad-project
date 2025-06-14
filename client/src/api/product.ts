@@ -108,6 +108,44 @@ export const editProduct = async (id: string, data: FormData | Partial<IProduct>
 }
 
 export const purchaseProduct = async ({ id, data }: { id: string, data: FormValues }) => {
-    const response = await apiInstance.post(`/purchase/${id}`, data);
-    return response?.data;
+
+    try {
+
+        const response = await apiInstance.post(`/purchase/${id}`, data);
+        
+        return response?.data;
+
+    } catch (error: any) {
+
+        throw error?.reponse?.data
+    }
 };
+
+
+export const purchaseHistory = async () => {
+
+    try {
+
+        const reponse = await apiInstance.get('/purchase/history')
+
+        return reponse?.data;
+    } catch (error: any) {
+
+        throw error?.reponse?.data
+    }
+}
+
+
+
+export const removeHistory = async (id: string) => {
+
+    try {
+
+        const response = await apiInstance.delete(`/purchase/${id}`)
+        return response?.data
+
+    } catch (error: any) {
+
+        throw error?.response?.data
+    }
+}

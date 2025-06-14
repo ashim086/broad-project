@@ -10,10 +10,11 @@ import toast from "react-hot-toast"
 
 interface IProps {
     product: IProduct
-    wishlistID: string
+    wishlistID: string,
+    disable?:boolean
 }
 
-const WishlistCard: React.FC<IProps> = ({ product, wishlistID }) => {
+const WishlistCard: React.FC<IProps> = ({ product, wishlistID ,disable}) => {
 
     const queryClient = useQueryClient();
 
@@ -70,6 +71,7 @@ const WishlistCard: React.FC<IProps> = ({ product, wishlistID }) => {
 
             <div className="flex sm:flex-col items-center sm:items-end gap-2">
                 <button
+                    disabled={disable}
                     onClick={onRemove}
                     className="bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded-md text-sm cursor-pointer transition-all"
                 >
