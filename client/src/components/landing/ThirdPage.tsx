@@ -1,7 +1,13 @@
+'use client'
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function SupplementOfferPage() {
+
+    const router = useRouter();
+
     return (
         <div className="min-h-screen  flex items-center justify-center flex-col">
 
@@ -20,7 +26,10 @@ export default function SupplementOfferPage() {
                         <p className="text-3xl font-bold text-gray-800">$38.99</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <button className="bg-black text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-800 transition-all">
+                        <button className="bg-black text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-800 transition-all"
+                            onClick={() => {
+                                router.push('/home/')
+                            }} >
                             Add to cart
                         </button>
                         <button className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center text-xl hover:bg-gray-100">

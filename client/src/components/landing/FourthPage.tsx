@@ -52,7 +52,7 @@ function FourthPage() {
     }
 
     return (
-        <main className="relative w-full pt-26">
+        <main className="relative w-full pt-26">    
             <div className="relative w-full">
                 {/* Left Arrow */}
                 <button
