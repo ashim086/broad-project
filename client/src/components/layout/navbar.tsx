@@ -6,6 +6,8 @@ import { BiPurchaseTag } from 'react-icons/bi'
 import { FaHeart } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
 import { SiSuno } from 'react-icons/si'
+import Cookies from 'js-cookie'
+import toast from 'react-hot-toast'
 
 function NavBar() {
 
@@ -39,7 +41,12 @@ function NavBar() {
         {
             icon: <User />
         }, {
-            icon: <LogOutIcon />
+            icon: <LogOutIcon
+                onClick={() => {
+                    Cookies.remove('access_token')
+                    router.push('/auth/login')
+                    toast.success("log out")
+                }} />
         },
     ]
 
@@ -83,7 +90,7 @@ function NavBar() {
 
 
                 <input type='text' className='border border-gray-200 broder-2 p-2 rounded-4xl' placeholder='Search...' />
-                <Search className='mr-2' /> 
+                <Search className='mr-2' />
 
                 <div className='flex space-x-7  border-gray-200 rounded-4xl  px-6 justify-end items-end '>
 
