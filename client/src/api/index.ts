@@ -20,7 +20,7 @@ const apiInstance = axios.create({
 // Add a request interceptor
 apiInstance.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.headers.Authorization = `BEARER ${getToken()}`
+    config.headers.Authorization = `Beare ${getToken()}`
     return config;
 }, function (error) {
     // Do something with request error
