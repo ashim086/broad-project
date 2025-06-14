@@ -5,7 +5,11 @@ const PUBLIC_URL = process.env.NEXT_PUBLIC_API
 
 const token = Cookies.get("access_token")
 
-
+const getToken = () => {
+    const token = Cookies.get("access_token");
+    console.log("token", token)
+    return token
+}
 
 const apiInstance = axios.create({
 
@@ -16,7 +20,7 @@ const apiInstance = axios.create({
 // Add a request interceptor
 apiInstance.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.headers.Authorization = `BEARER token`
+    config.headers.Authorization = `BEARER ${getToken()}`
     return config;
 }, function (error) {
     // Do something with request error
