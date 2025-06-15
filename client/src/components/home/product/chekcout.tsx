@@ -77,14 +77,7 @@ const CheckoutPage = ({ id }: IProps) => {
         }),
         mutationKey: ['purchase-product'],
         onSuccess: (data) => {
-            toast.success(data?.data?.message ?? "Buy count updated")
-            router.back()
             queryClient.invalidateQueries(({ queryKey: ['get-all-mostBuy-products'] }))
-        },
-
-        onError: (error) => {
-
-            toast.error(error?.message ?? 'Enter address')
         },
     });
 
