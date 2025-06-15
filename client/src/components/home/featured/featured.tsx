@@ -1,6 +1,6 @@
 'use client'
 
-import { getMostlikedproducts } from '@/api/product'
+import { getlatestproducts } from '@/api/product'
 import Card from '@/components/common/cards/card'
 import { IProduct } from '@/interface/product.interface'
 import { useQuery } from '@tanstack/react-query'
@@ -9,8 +9,8 @@ import React from 'react'
 function FeaturedStock() {
 
     const { isLoading, error, data } = useQuery({
-        queryKey: ['get-all-mostBuy-products'],
-        queryFn: getMostlikedproducts,
+        queryKey: ['get-all-latest-products'],
+        queryFn: getlatestproducts,
 
     })
 
