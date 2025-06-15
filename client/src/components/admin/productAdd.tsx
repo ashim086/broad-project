@@ -39,6 +39,7 @@ function ProductAdd() {
             toast.success(response?.message)
             router.replace('/admin/product')
             queryClient.invalidateQueries({ queryKey: ['get-all-products'] })
+            queryClient.invalidateQueries({ queryKey: ['get-all-mostBuy-products'] })
             reset()
 
         },

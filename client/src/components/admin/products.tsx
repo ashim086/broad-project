@@ -32,6 +32,9 @@ function Products() {
 
             toast.success(response?.message)
             queryCLient.invalidateQueries({ queryKey: ['get-all-products'] })
+            queryCLient.invalidateQueries({ queryKey: ['get-all-wishlist-products'] })
+            queryCLient.invalidateQueries({ queryKey: ['get-all-cart-products'] })
+            queryCLient.invalidateQueries({ queryKey: ['get-all-purchase-products'] })
 
         },
         onError: (error: any) => {

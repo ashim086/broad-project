@@ -18,11 +18,11 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
     const { mutate } = useMutation({
         mutationFn: addtocart,
         onSuccess: (response) => {
-            queryClient.invalidateQueries({ queryKey: ["cart"] });
+            queryClient.invalidateQueries({ queryKey: ['get-all-cart-products'] });
             toast.success(response?.message || "Added to cart");
         },
         onError: (error: any) => {
-            toast.error(error?.message || "Something went wrong");
+            toast.error(error?.message || "Something went wrong");  
         },
     });
 
