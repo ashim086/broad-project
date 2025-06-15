@@ -3,8 +3,8 @@
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { getProductById, purchaseProduct } from '@/api/product';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { getProductById, purchaseProduct, updateBuyCount } from '@/api/product';
 import Input from '@/components/common/input/input';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
@@ -61,8 +61,27 @@ const CheckoutPage = ({ id }: IProps) => {
         mutationKey: ['purchase-product'],
         onSuccess: (data) => {
             toast.success(data?.data?.message ?? "Purchase confirmed")
+            buyCount()
             router.back()
         },
+        onError: (error) => {
+
+            toast.error(error?.message ?? 'Enter address')
+        },
+    });
+
+    const queryClient = useQueryClient()
+    const { mutate: buyCount } = useMutation({
+        mutationFn: () => updateBuyCount(id, {
+            buyInfo: product?.data?.buyInfo + 1
+        }),
+        mutationKey: ['purchase-product'],
+        onSuccess: (data) => {
+            toast.success(data?.data?.message ?? "Buy count updated")
+            router.back()
+            queryClient.invalidateQueries(({ queryKey: ['get-all-mostBuy-products'] }))
+        },
+
         onError: (error) => {
 
             toast.error(error?.message ?? 'Enter address')
@@ -146,7 +165,7 @@ const CheckoutPage = ({ id }: IProps) => {
                 <button
                     type="submit"
                     disabled={isPending}
-                    className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md"
+                    className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md cursor-pointer"
                 >
                     Place Order
                 </button>

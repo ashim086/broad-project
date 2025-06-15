@@ -107,12 +107,21 @@ export const editProduct = async (id: string, data: FormData | Partial<IProduct>
     }
 }
 
+export const updateBuyCount = async (id: string, data: Partial<IProduct>) => {
+    try {
+        const response = await apiInstance.patch(`/product/${id}`, data,)
+        return response?.data;
+    } catch (error: any) {
+        throw error?.response?.data;
+    }
+}
+
 export const purchaseProduct = async ({ id, data }: { id: string, data: FormValues }) => {
 
     try {
 
         const response = await apiInstance.post(`/purchase/${id}`, data);
-        
+
         return response?.data;
 
     } catch (error: any) {

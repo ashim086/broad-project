@@ -15,5 +15,6 @@ export interface IProduct {
     price: number | string,
     flavour: string,
     product?: IImage[],
-    files?: IImage[]
+    files?: IImage[],
+    buyInfo?:number
 }       

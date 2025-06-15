@@ -11,6 +11,11 @@ export default function AdminPanelNavbar() {
         router.replace('/')
 
     }
+    function admin() {
+
+        router.replace('/admin/product')
+
+    }
     return (
         <div className="flex justify-between space-x-7  shadow-lg rounded-3xl p-5 my-6 ">
 
@@ -23,7 +28,7 @@ export default function AdminPanelNavbar() {
 
 
             <div className="flex items-center space-x-7" >
-                <h1 className="text-6xl font-bold tracking-widest  ">ADMIN PANEL</h1>
+                <h1 className="text-6xl font-bold tracking-widest cursor-pointer" onClick={admin}>ADMIN PANEL</h1>
             </div>
 
 

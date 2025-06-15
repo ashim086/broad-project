@@ -38,7 +38,7 @@ function FeaturedStock() {
                 Customer&apos;s Favourite Stock
             </h1>
 
-            <div className='px-6 pt-16 content-center text-center  '>
+            <div className='px-6 pt-16 content-center '>
 
                 <div className='flex space-x-6 my-6'>
                     {data?.data.slice(0, 5).map((product: IProduct, index: number) => (

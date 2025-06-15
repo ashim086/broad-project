@@ -66,8 +66,8 @@ function Products() {
 
         columnHelper.accessor('name', {
             id: 'name',
-            cell: info => info.getValue(),
-            header: () => <span>Product Name</span>,
+            cell: info => <span className='line-clamp-3'>{info.getValue()}</span>,
+            header: () => <span >Product Name</span>,
         }),
         columnHelper.accessor('price', {
             id: 'price',
@@ -77,7 +77,7 @@ function Products() {
         columnHelper.accessor('description', {
             id: 'description',
             header: () => 'Description',
-            cell: info => <i>{info.getValue() ?? '-'}</i>,
+            cell: info => <i className='line-clamp-3'>{info.getValue() ?? '-'}</i>,
         }),
         columnHelper.accessor('createdAt', {
             id: 'createdAt',
