@@ -83,7 +83,7 @@ function Signup() {
                         <div className='flex  space-x-2.5 pb-4'>
 
                             <label className='text-sm text-gray-400'>
-                                Don`&apos;`t have an account yet?
+                                Don&apos;t have an account yet?
 
                             </label>
                             <Link href={'/auth/login'}>

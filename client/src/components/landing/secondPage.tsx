@@ -55,8 +55,8 @@ function SecondPage() {
                     </div>
                     <div className='pt-14'>
 
-                        <p>Whether you`&apos;`re looking to strengthen
-                            <br />your immune system, enhance your<br /> energy levels, or promote overall <br />wellness, we`&apos;`ve got you covered.</p>
+                        <p>Whether you&apos;re looking to strengthen
+                            <br />your immune system, enhance your<br /> energy levels, or promote overall <br />wellness, we&apos;ve got you covered.</p>
                         <br />
                         <Link href={'/home'}>View all products</Link>
                     </div>

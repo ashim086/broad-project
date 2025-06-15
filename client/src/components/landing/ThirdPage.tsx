@@ -64,7 +64,7 @@ export default function SupplementOfferPage() {
                 {/* Right Text Info */}
                 <div className="md:w-1/3 p-6 text-sm text-gray-600 flex flex-col justify-center">
                     <p className="mb-4">
-                        Whether you`&apos;`re an athlete, a busy professional, or just looking to boost
+                        Whether you&apos;re an athlete, a busy professional, or just looking to boost
                         your overall health, we have the perfect set for you.
                     </p>
                     <p className="mb-4">
