@@ -56,7 +56,7 @@ const CaartCard: React.FC<IProps> = ({ product, cartID }) => {
             <div className="flex items-center gap-4 w-full sm:w-auto">
                 <div className="relative w-20 h-20 flex-shrink-0">
                     <Image
-                        alt={product.name}
+                        alt={product?.name}
                         src={product?.files?.[0]?.url || '/fallback.jpg'}
                         fill
                         onClick={onclick}
