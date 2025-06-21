@@ -9,7 +9,7 @@ import React from 'react'
 function FeaturedStock() {
 
     const { isLoading, error, data } = useQuery({
-        queryKey: ['get-all-featured-products'],
+        queryKey: ['get-all-latest-products'],
         queryFn: getlatestproducts,
 
     })

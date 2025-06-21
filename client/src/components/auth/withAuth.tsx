@@ -23,7 +23,7 @@ export function WithAuth<P extends { children?: ReactNode }>(
             const { valid, role } = Parsetoken(token || '')
 
             if (!valid || !allowedRoles.includes(role || '')) {
-                toast.error('Unauthorized access')
+                toast.error('Unauthorized Please login')
                 Cookies.remove('access_token')
                 localStorage.removeItem('user_info')
                 router.push('/auth/login')

@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from 'cloudinary'; // Use v2 consistently
+import { v2 as cloudinary } from 'cloudinary'; 
 
 export const deleteFileCloudinary = async (files: string[] | string) => {
 
@@ -15,3 +15,4 @@ export const deleteFileCloudinary = async (files: string[] | string) => {
         throw error;
     }
 };
+    

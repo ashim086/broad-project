@@ -14,32 +14,20 @@ function Home() {
 
     return (
 
-        <div className="lg:h-screen lg:snap-y lg:snap-mandatory lg:overflow-y-scroll lg:scroll-smooth overflow-hidden">
-            <section className="snap-start h-screen">
-                <Header />
-                <HeroSection />
-            </section>
+        <div>
+            <Header />
+            <HeroSection />
 
-            <section className="snap-start h-screen">
-                <SecondPage />
-            </section>
+            <SecondPage />
 
-            <section className="snap-start h-screen">
-                <SupplementOfferPage />
-            </section>
+            <SupplementOfferPage />
 
-            <section className="snap-start h-screen">
-                <FourthPage />
-            </section>
+            <FourthPage />
 
-            <section className="snap-start h-screen">
-                <Fifth />
-            </section>
+            <Fifth />
 
-            <section className="snap-start h-screen bg-gray-900 text-white flex justify-center content-center w-screen align-bottom">
-                <Footer />
-            </section>
-        </div>
+            <Footer />
+        </div >
     )
 }
 
