@@ -11,6 +11,7 @@ import toast from 'react-hot-toast';
 import { login } from '@/api/auth.api';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 function LoginForm() {
     const router = useRouter();
@@ -63,7 +64,15 @@ function LoginForm() {
         <main className='flex justify-center items-center h-screen w-screen'>
             <div className="flex w-[999px] max-w-[1000px] h-[650px] rounded-lg shadow-lg shadow-gray-300 overflow-hidden tracking-wider">
                 {/* Left section (placeholder for illustration) */}
-                <div className='flex-1 border-r-2 border-gray-500'></div>
+                <div className='flex-1 border-r-2 border-gray-500 w-full relative'>
+
+                    <Image
+                        alt='auth.jpeg'
+                        fill
+                        className='object-cover'
+                        src={'/auth.webp'} />
+
+                </div>
 
                 {/* Right section (form) */}
                 <div className='flex flex-col flex-1 w-1/2 justify-center items-center h-full relative'>
@@ -104,7 +113,7 @@ function LoginForm() {
                                 Sign Up
                             </Link>
                             <Link href="/" className='text-blue-800 font-medium text-sm cursor-pointer'>
-                               Back to page
+                                Back to page
                             </Link>
                         </div>
                     </div>

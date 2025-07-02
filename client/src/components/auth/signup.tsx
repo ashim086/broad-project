@@ -10,6 +10,7 @@ import { useMutation } from '@tanstack/react-query';
 import { signup } from '@/api/auth.api';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 
 function Signup() {
@@ -100,8 +101,13 @@ function Signup() {
 
 
 
-                <div className='flex-1   border-l-2 border-gray-500'>
-                    {/* <Image src={...} alt="Auth Illustration" className="w-full h-full object-cover" /> */}
+                <div className='flex-1   border-l-2 border-gray-500 relative w-full'>
+
+                    <Image
+                        alt='auth.jpeg'
+                        src={'/auth.webp'}
+                        className=' object-cover'
+                        fill />
                 </div>
 
 
