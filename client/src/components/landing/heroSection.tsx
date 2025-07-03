@@ -16,7 +16,7 @@ function HeroSection() {
 
     return (
         // {/* // center */}
-        <div className='mx-2 mb-7'>
+        <div className='mx-2 mb-7 p-10'>
 
             <div className='w-full flex  my-9 items-center font-sans lg:mx-2'>
 

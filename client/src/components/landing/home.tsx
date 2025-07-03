@@ -14,13 +14,13 @@ function Home() {
 
     return (
 
-        <div>
+        <div >
             <Header />
             <HeroSection />
 
             <SecondPage />
 
-            <SupplementOfferPage />
+            <SupplementOfferPage /> 
 
             <FourthPage />
 
